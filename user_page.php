@@ -40,16 +40,14 @@ $user_name = $_SESSION['user_name']; // User-specific content
             <img src="justice.png" alt="Logo">
             
         </div>
-
         <a href="user_page.php"><i class="fas fa-home"></i> Home</a>
-        <a href="calendar.php"><i class="fas fa-calendar-alt"></i> Calendar</a>
+        <a href="legaldocs.php"><i class="fas fa-calendar-alt"></i> Legals Document</a>
         <a href="history.php"><i class="fas fa-history"></i> History</a>
         <a href="cases.php"><i class="fas fa-briefcase"></i> Cases</a>
         <a href="contactus.php"><i class="fas fa-envelope"></i> Contact Us</a>
         <a href="aboutus.php"><i class="fas fa-info-circle"></i> About Us</a>
         <a href="location.php"><i class="fas fa-map-marker-alt"></i> Location</a>
-        <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
-        
+        <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>      
     </div>
 
     <div class="content-area">
@@ -65,18 +63,6 @@ $user_name = $_SESSION['user_name']; // User-specific content
         <div class="container">
             <div class="welcome-box">
                 <p>This is your user dashboard. You can view and manage your files here.</p>
-            </div>
-
-            <div class="document-container">
-                <div class="document-box"><a href="example.php"><button>Generate Affidavit of Loss</button></a></div>
-                <div class="document-box"><a href="example.php"><button>Generate Deed of Sale</button></a></div>
-                <div class="document-box"><a href="example.php"><button>Generate Sworn Affidavit of Solo Parent</button></a></div>
-                <div class="document-box highlight"><a href="example.php"><button>Generate Sworn Affidavit of Mother</button></a></div>
-                <div class="document-box highlight"><a href="example.php"><button>Generate Sworn Affidavit of Father</button></a></div>
-                <div class="document-box highlight"><a href="example.php"><button>Generate Sworn Statement of Mother</button></a></div>
-                <div class="document-box"><a href="example.php"><button>Generate Sworn Statement of Father</button></a></div>
-                <div class="document-box"><a href="example.php"><button>Generate Joint Affidavit of Two Disinterested Persons</button></a></div>
-                <div class="document-box"><a href="example.php"><button>Generate Agreement</button></a></div>
             </div>
         </div>
     </div>
@@ -147,17 +133,25 @@ $user_name = $_SESSION['user_name']; // User-specific content
 
             if (response.ok) {
                 document.getElementById('weather').innerHTML = `
-                    <p><strong>${data.weather[0].description}</strong></p>
-                    <p>🌡️ Temperature: ${data.main.temp}°C</p>
-                    <p>💨 Wind: ${data.wind.speed} km/h</p>
-                    <p>📍 Location: ${data.name}</p>
-                `;
+                <p style="font-family: Arial, sans-serif; font-size: 15px; color: #333; text-align: center; margin-bottom: 10px; ">
+                    <strong style="font-size: 15px; color: #000;">${data.weather[0].description}</strong>
+                </p>
+                <p style="font-family: Arial, sans-serif; font-size: 15px; color: #333;">
+                    🌡️ Temperature: ${data.main.temp}°C
+                </p>
+                <p style="font-family: Arial, sans-serif; font-size: 15px; color: #333;">
+                    💨 Wind: ${data.wind.speed} km/h
+                </p>
+                <p style="font-family: Arial, sans-serif; font-size: 15px; color: #333;">
+                    📍 Location: ${data.name}
+                </p>
+            `;
             } else {
                 document.getElementById('weather').innerHTML = `<p>❌ ${data.message}</p>`;
             }
         } catch (error) {
             console.error('Error fetching weather:', error);
-            document.getElementById('weather').innerHTML = '<p>❌ Hindi makuha ang ulat ng panahon.</p>';
+            document.getElementById('weather').innerHTML = '<p>❌ cannot fetch .</p>';
         }
     }
 
